@@ -28,7 +28,7 @@ public class Task4week5 extends Tests{
 
         //delete cookie
         driver.manage().deleteCookieNamed("Browser1");
-        System.out.println("After delete Browser1 ");
+        System.out.println("After delete Browser1");
         driver.manage().getCookies().forEach(System.out::println);
 
         //delete all cookies
