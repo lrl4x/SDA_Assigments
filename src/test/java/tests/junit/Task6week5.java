@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Task6week5 extends Tests{
     // Go to amazon.com
     // Take Full Page Screenshot.
-    // Take any spesific WebElement ScreenShot]'
+    // Take any spesific WebElement ScreenShot'
 
     @Test
 
