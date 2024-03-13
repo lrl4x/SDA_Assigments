@@ -29,7 +29,7 @@ public class Task3week5 extends Tests{
     @Test
     public void scroll() throws AWTException {
         WebElement scroll = driver.findElement(By.xpath("//div[@class='nav-logo-base nav-sprite']"));
-        scroll.click();
+//        scroll.click();
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_PAGE_DOWN);
         robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
