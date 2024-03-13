@@ -12,9 +12,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class Task6week5 extends Tests{
-    //  Go to amazon.com
-    //  Take Full Page Screenshot.
-    //  Take any spesific WebElement ScreenShot]'
+    // Go to amazon.com
+    // Take Full Page Screenshot.
+    // Take any spesific WebElement ScreenShot]'
 
     @Test
 
@@ -27,6 +27,7 @@ public class Task6week5 extends Tests{
         WebElement element = driver.findElement(elementLocator);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 
+        //screenshot
         Screenshot fullPageScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
         ImageIO.write(fullPageScreenshot.getImage(), "jpg", new File(filePath + "full_page_screenshot.jpg"));
 
