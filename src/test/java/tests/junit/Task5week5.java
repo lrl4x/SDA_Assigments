@@ -30,7 +30,7 @@ public class Task5week5 extends Tests {
 
     @Test
     public void main() throws IOException {
-        FileInputStream fs = new FileInputStream("C:\\excelfile.xlsx");
+        FileInputStream fs = new FileInputStream("C:\\excelworksheet.xlsx");
         XSSFWorkbook workbook = new XSSFWorkbook(fs);
 
         try {
@@ -53,7 +53,7 @@ public class Task5week5 extends Tests {
             Cell cell4 = row4.createCell(2);
             cell4.setCellValue("Data for 4th row.");
 
-            FileOutputStream outputStream = new FileOutputStream("C:\\excelfile.xlsx");
+            FileOutputStream outputStream = new FileOutputStream("C:\\excelworksheet.xlsx");
             workbook.write(outputStream);
         } finally {
             fs.close();

@@ -26,10 +26,11 @@ public class Task3week5 extends Tests{
         driver.manage().window().minimize();
         driver.navigate().to("https://www.amazon.sa/-/en/ref=nav_logo");
     }
+
     @Test
     public void scroll() throws AWTException {
-        WebElement scroll = driver.findElement(By.xpath("//div[@class='nav-logo-base nav-sprite']"));
-//        scroll.click();
+        WebElement scroll = driver.findElement(By.xpath("//a[@href='/-/en/?ref_=footer_logo']/div"));
+        scroll.click();
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_PAGE_DOWN);
         robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
@@ -45,9 +46,9 @@ public class Task3week5 extends Tests{
     }
     @Test
     public void clickatAmazonlogo(){
-        WebElement scroll = driver.findElement(By.xpath("//div[@class='nav-logo-base nav-sprite']"));
+        WebElement scrollB = driver.findElement(By.xpath("//a[@href='/-/en/?ref_=footer_logo']/div"));
         JavascriptExecutor js= (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();",scroll);
+        js.executeScript("window.scrollBy(0,1000)");
 
 
     }
