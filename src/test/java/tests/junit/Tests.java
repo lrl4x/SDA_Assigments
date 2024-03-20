@@ -16,6 +16,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -27,38 +28,38 @@ public abstract class Tests {
     protected static Logger logger;
     protected ActionsBot bot;
 
-    @BeforeAll
+    @BeforeSuite
     public static void beforeAll(){
         Configurator.initialize(null, "src/main/resources/properties/log4j2.properties");
         logger = LogManager.getLogger(Tests.class.getName());
     }
 
-    @BeforeEach
-    public void beforeEach(){
-        logger.info("Opening Chrome Browser");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("start-maximized");
-        driver = new ChromeDriver(chromeOptions);
-
-        logger.info("Configuring 5 second explicit wait");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        bot = new ActionsBot(driver, wait, logger);
-    }
-//@Parameters({ "target-browser" })
-//@BeforeMethod
-//public void beforeMethod(@Optional("chrome") String targetBrowser){
-//    logger.info("Opening "+targetBrowser+" Browser");
+//    @BeforeEach
+//    public void beforeEach(){
+//        logger.info("Opening Chrome Browser");
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("start-maximized");
+//        driver = new ChromeDriver(chromeOptions);
 //
-//    switch (targetBrowser){
-//        case "chrome" -> driver = new ChromeDriver();
-//        case "firefox" -> driver = new FirefoxDriver();
-//        case "edge" -> driver = new EdgeDriver();
+//        logger.info("Configuring 5 second explicit wait");
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        bot = new ActionsBot(driver, wait, logger);
 //    }
-//    driver.manage().window().maximize();
-//    logger.info("Configuring 5 second explicit wait");
-//    wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//    bot = new ActionsBot(driver, wait, logger);
-//}
+@Parameters({ "target-browser" })
+@BeforeMethod
+public void beforeMethod(@Optional("chrome") String targetBrowser){
+    logger.info("Opening "+targetBrowser+" Browser");
+
+    switch (targetBrowser){
+        case "chrome" -> driver = new ChromeDriver();
+        case "firefox" -> driver = new FirefoxDriver();
+        case "edge" -> driver = new EdgeDriver();
+    }
+    driver.manage().window().maximize();
+    logger.info("Configuring 5 second explicit wait");
+    wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    bot = new ActionsBot(driver, wait, logger);
+}
 
     @AfterEach
     public void afterEach(){
