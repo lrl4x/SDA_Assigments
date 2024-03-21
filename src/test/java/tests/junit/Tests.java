@@ -15,10 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -61,7 +58,7 @@ public void beforeMethod(@Optional("chrome") String targetBrowser){
     bot = new ActionsBot(driver, wait, logger);
 }
 
-    @AfterEach
+    @AfterClass
     public void afterEach(){
         logger.info("Quitting Browser");
         driver.quit();
