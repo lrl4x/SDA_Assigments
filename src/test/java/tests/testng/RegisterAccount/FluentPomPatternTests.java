@@ -18,7 +18,7 @@ public class FluentPomPatternTests extends Tests {
                 .goTo()
                 .register("user123z",
                         "user123z",
-                        "user123z3@hotmail.com",
+                        "user123z33@hotmail.com",
                         "user123z",
                         "user123z",
                         "user123z")
